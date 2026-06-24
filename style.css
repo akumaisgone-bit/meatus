@@ -1876,22 +1876,6 @@ body {
     .contact-cards-grid {
         grid-template-columns: 1fr;
     }
-    
-    .mobile-sticky-cta {
-        display: flex;
-    }
-    
-    .floating-wa {
-        bottom: 70px; /* shift above sticky cta bar */
-    }
-    
-    .sticky-cart-bar {
-        bottom: 53px; /* shift above sticky mobile bar */
-    }
-    
-    body {
-        padding-bottom: 53px; /* prevent text hiding behind sticky bar */
-    }
 }
 
 @media (max-width: 480px) {
