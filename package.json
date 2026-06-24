@@ -1,0 +1,21 @@
+{
+  "name": "meat-us-website",
+  "version": "1.0.0",
+  "description": "Premium multi-page website for Meat Us in Agra",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.2.0"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cookie": "^1.1.1",
+    "dotenv": "^17.4.2",
+    "jsonwebtoken": "^9.0.3",
+    "mongodb": "^7.3.0"
+  }
+}

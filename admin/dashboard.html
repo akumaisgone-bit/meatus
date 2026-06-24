@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Meat Us | Admin Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <img src="../assets/logo_header.jpg" alt="Meat Us Header Logo">
+                <h3>Meat Us Admin</h3>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a class="nav-item active" data-tab="products">
+                    <span class="nav-icon">🥩</span>
+                    <span>Products</span>
+                </a>
+                <a class="nav-item" data-tab="gallery">
+                    <span class="nav-icon">📸</span>
+                    <span>Gallery</span>
+                </a>
+                <a class="nav-item" data-tab="settings">
+                    <span class="nav-icon">⚙️</span>
+                    <span>Settings</span>
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="admin-profile">
+                    <div class="profile-avatar">A</div>
+                    <div class="profile-details">
+                        <h5>Administrator</h5>
+                        <p>admin@meatus.in</p>
+                    </div>
+                </div>
+                <a id="logout-btn" class="nav-item" style="color: #ff5252;">
+                    <span class="nav-icon">🚪</span>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- MAIN WINDOW -->
+        <main class="main-content">
+            
+            <!-- PRODUCTS TAB VIEW -->
+            <div id="products-tab" class="tab-view active">
+                <div class="content-header">
+                    <div class="header-title">
+                        <h1>Product Catalog</h1>
+                        <p>Manage raw cuts inventory, categories, pricing, and tags.</p>
+                    </div>
+                    <div class="header-actions">
+                        <a href="../index.html" target="_blank" class="btn-action-outline">View Storefront ↗</a>
+                        <button id="add-product-btn" class="btn-action">✚ Add Product</button>
+                    </div>
+                </div>
+                
+                <!-- Stat Cards -->
+                <div class="stats-grid" style="margin-top: 30px; margin-bottom: 30px;">
+                    <div class="stat-card">
+                        <span>Total Items</span>
+                        <h3>5</h3>
+                        <p>Active demo collection</p>
+                    </div>
+                    <div class="stat-card">
+                        <span>Categories</span>
+                        <h3>4</h3>
+                        <p>Mutton, fish, chicken, eggs</p>
+                    </div>
+                    <div class="stat-card">
+                        <span>Out of Stock</span>
+                        <h3>1</h3>
+                        <p style="color: #ff5252;">Needs update</p>
+                    </div>
+                </div>
+
+                <div class="table-card">
+                    <div class="table-controls">
+                        <div class="search-input-wrap">
+                            <span class="search-icon-inline">🔍</span>
+                            <input type="text" id="product-search" placeholder="Search product name, category...">
+                        </div>
+                    </div>
+                    
+                    <div class="table-responsive">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Item Details</th>
+                                    <th>Price Tag</th>
+                                    <th>Promo Tag</th>
+                                    <th>Availability</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="products-table-body">
+                                <!-- Populated dynamically by admin.js -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GALLERY TAB VIEW -->
+            <div id="gallery-tab" class="tab-view">
+                <div class="content-header">
+                    <div class="header-title">
+                        <h1>Store Gallery</h1>
+                        <p>Moderated visuals demonstrating hygiene and store displays.</p>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn-action" onclick="alert('Demo uploads completed!')">✚ Upload Image</button>
+                    </div>
+                </div>
+                
+                <div class="gallery-grid" style="margin-top: 30px;">
+                    <div class="gallery-card">
+                        <img src="../assets/logo.jpg" alt="Logo Banner">
+                        <div class="gallery-overlay"><span>Brand Identity</span></div>
+                    </div>
+                    <div class="gallery-card">
+                        <img src="../assets/mutton_menu.jpg" alt="Mutton">
+                        <div class="gallery-overlay"><span>Raw Mutton cuts</span></div>
+                    </div>
+                    <div class="gallery-card">
+                        <img src="../assets/fish_menu_1.jpg" alt="Fish">
+                        <div class="gallery-overlay"><span>Freshwater Fishes Menu</span></div>
+                    </div>
+                    <div class="gallery-card">
+                        <img src="../assets/promo_salami.jpg" alt="Salami">
+                        <div class="gallery-overlay"><span>Chicken Salami Promo</span></div>
+                    </div>
+                    <div class="gallery-card">
+                        <img src="../assets/fish_menu_2.jpg" alt="Seafood">
+                        <div class="gallery-overlay"><span>Seafood Menu Page</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SETTINGS TAB VIEW -->
+            <div id="settings-tab" class="tab-view">
+                <div class="content-header">
+                    <div class="header-title">
+                        <h1>Global Settings</h1>
+                        <p>Manage WhatsApp direct numbers, store hours, and addresses.</p>
+                    </div>
+                </div>
+                
+                <form id="settings-form" style="margin-top: 30px;">
+                    <div class="settings-section-card">
+                        <h3>Customer Communication</h3>
+                        <div class="grid-cols-2">
+                            <div class="form-group">
+                                <label for="wa-number">WhatsApp Direct (Agra Delivery)</label>
+                                <input type="text" id="wa-number" value="9045994333">
+                            </div>
+                            <div class="form-group">
+                                <label for="call-number">Primary Phone Support</label>
+                                <input type="text" id="call-number" value="9045994333">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settings-section-card">
+                        <h3>Operating Details</h3>
+                        <div class="grid-cols-2">
+                            <div class="form-group">
+                                <label for="open-time">Store Opening Time</label>
+                                <input type="time" id="open-time" value="08:00">
+                            </div>
+                            <div class="form-group">
+                                <label for="close-time">Store Closing Time</label>
+                                <input type="time" id="close-time" value="21:00">
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-top: 15px;">
+                            <label for="address-line">Physical Store Location Address</label>
+                            <input type="text" id="address-line" value="5/191, Alwatiya Rd, Ram Nagar, Shahganj, Agra, India">
+                        </div>
+                    </div>
+
+                    <div style="display: flex; justify-content: flex-end;">
+                        <button type="submit" class="btn-action" style="padding: 12px 30px;">Save Settings</button>
+                    </div>
+                </form>
+            </div>
+            
+        </main>
+    </div>
+
+    <!-- DIALOG MODAL FOR EDITING/ADDING PRODUCTS -->
+    <div id="edit-modal" class="modal-overlay">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 id="modal-title">Edit Product Details</h3>
+                <button id="modal-close-btn" class="modal-close">&times;</button>
+            </div>
+            <form id="edit-form">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="prod-name">Product Name</label>
+                        <input type="text" id="prod-name" required placeholder="e.g. Mutton Curry Cut">
+                    </div>
+                    
+                    <div class="grid-cols-2">
+                        <div class="form-group">
+                            <label for="prod-category">Category</label>
+                            <select id="prod-category" required>
+                                <option value="mutton">Mutton</option>
+                                <option value="fish">Seafood & Fish</option>
+                                <option value="chicken">Chicken</option>
+                                <option value="eggs">Eggs</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="prod-unit">Selling Unit</label>
+                            <select id="prod-unit" required>
+                                <option value="kg">Per kg</option>
+                                <option value="pkg">Per packet</option>
+                                <option value="set">Per set</option>
+                                <option value="dozen">Per dozen</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid-cols-2">
+                        <div class="form-group">
+                            <label for="prod-price">Price (₹)</label>
+                            <input type="number" id="prod-price" required min="1" placeholder="800">
+                        </div>
+                        <div class="form-group">
+                            <label for="prod-badge">Promotional Badge</label>
+                            <input type="text" id="prod-badge" placeholder="e.g. Best Seller">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <label class="checkbox-group">
+                            <input type="checkbox" id="prod-instock" checked>
+                            <span>Mark this item as "In Stock"</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="modal-cancel-btn" class="btn-action-outline" style="padding: 10px 20px;">Cancel</button>
+                    <button type="submit" class="btn-action" style="padding: 10px 25px;">Publish Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATIONS -->
+    <div class="toast-container">
+        <div id="success-toast" class="toast">
+            <span class="toast-icon">✓</span>
+            <span class="toast-message">Changes Published</span>
+        </div>
+    </div>
+
+    <script type="module" src="admin.js"></script>
+</body>
+</html>

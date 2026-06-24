@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Meat Us | Admin Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body class="login-body">
+    <div class="login-wrapper">
+        <div class="login-card">
+            <div class="login-header">
+                <h2>Meat Us Admin</h2>
+                <p>Demo Login Gate (Use <strong>@admin123</strong> / <strong>@admin123</strong>)</p>
+            </div>
+            
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="username">Username / Email</label>
+                    <input type="text" id="username" required autocomplete="username" placeholder="Username">
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required autocomplete="current-password" placeholder="••••••••">
+                </div>
+                
+                <div id="error-message" class="error-banner" style="display: none;"></div>
+                
+                <button type="submit" id="submit-btn" class="btn-submit">
+                    <span class="btn-text">Sign In</span>
+                    <span class="spinner" style="display: none;"></span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value;
+            const errorEl = document.getElementById('error-message');
+            const submitBtn = document.getElementById('submit-btn');
+            const btnText = submitBtn.querySelector('.btn-text');
+            const spinner = submitBtn.querySelector('.spinner');
+            
+            // Reset state
+            errorEl.style.display = 'none';
+            errorEl.textContent = '';
+            btnText.style.display = 'none';
+            spinner.style.display = 'inline-block';
+            submitBtn.disabled = true;
+            
+            // Simulate short network delay for high fidelity UX
+            setTimeout(() => {
+                if (username === '@admin123' && password === '@admin123') {
+                    // Set session item so dashboard knows we logged in
+                    localStorage.setItem('admin_demo_session', 'active');
+                    window.location.href = 'dashboard.html';
+                } else {
+                    errorEl.textContent = 'Invalid credentials';
+                    errorEl.style.display = 'block';
+                    btnText.style.display = 'inline-block';
+                    spinner.style.display = 'none';
+                    submitBtn.disabled = false;
+                }
+            }, 800);
+        });
+    </script>
+</body>
+</html>

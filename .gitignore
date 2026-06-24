@@ -1,0 +1,11 @@
+# Local Netlify folder
+.netlify
+
+# Dependencies
+node_modules/
+
+# Production build output
+dist/
+
+# Local environment variables
+.env
